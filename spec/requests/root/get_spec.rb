@@ -13,5 +13,14 @@ RSpec.describe 'Posts', type: :request do
       get root_path as: user
       expect(response.body).to include("Signed in as: #{user.email}")
     end
+
+    it 'renders posts' do
+      post1 = FactoryBot.create(:post, user: user)
+      post2 = FactoryBot.create(:post, user: user)
+
+      get root_path as: user
+      expect(response.body).to include(post1.title.to_s)
+      expect(response.body).to include(post2.title.to_s)
+    end
   end
 end

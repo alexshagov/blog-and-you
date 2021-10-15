@@ -10,6 +10,7 @@ import "channels";
 import "init";
 import "components/page/page";
 import "components/navbar/navbar";
+import "components/posts/posts";
 
 Rails.start();
 ActiveStorage.start();

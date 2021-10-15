@@ -9,7 +9,7 @@ pre-commit:
       run: "yarn prettier --write {staged_files} && yarn stylelint --fix {staged_files} && git add {staged_files}"
     rubocop:
       glob: "*.{rb}"
-      run: "bundle exec rubocop {all_files}
+      run: "bundle exec rubocop"
 
 # EXAMPLE USAGE
 # Refer for explanation to following link:

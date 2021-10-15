@@ -6,6 +6,9 @@ Style/FrozenStringLiteralComment:
   Enabled: false
 Style/Documentation:
   Enabled: false
+RSpec/MultipleExpectations:
+  Enabled: false
+
 AllCops:
   Include:
     - app/controllers/**/*.rb
