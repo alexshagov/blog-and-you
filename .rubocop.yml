@@ -1,0 +1,17 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+AllCops:
+  Include:
+    - app/controllers/**/*.rb
+    - app/services/**/*.rb
+    - app/models/**/*.rb
+    - lib/**/*.rb
+    - spec/requests/**/*.rb
+    - spec/models/**/*.rb
+    - spec/services/**/*.rb

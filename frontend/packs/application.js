@@ -9,6 +9,7 @@ import "channels";
 
 import "init";
 import "components/page/page";
+import "components/navbar/navbar";
 
 Rails.start();
 ActiveStorage.start();

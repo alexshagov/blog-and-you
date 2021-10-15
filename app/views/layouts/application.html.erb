@@ -10,7 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render_component('page') do %>
+        <%= render_component('navbar') %>
+        <%= yield %>
+    <% end %>
 
     <%= javascript_pack_tag 'application' %>
   </body>
