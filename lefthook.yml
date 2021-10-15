@@ -7,7 +7,7 @@ pre-commit:
     css:
       glob: "*.{css,pcss}"
       run: "yarn prettier --write {staged_files} && yarn stylelint --fix {staged_files} && git add {staged_files}"
-      
+
 # EXAMPLE USAGE
 # Refer for explanation to following link:
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md

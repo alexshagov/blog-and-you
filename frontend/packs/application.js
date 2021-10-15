@@ -7,9 +7,8 @@ import Rails from "@rails/ujs";
 import * as ActiveStorage from "@rails/activestorage";
 import "channels";
 
-// CSS
-import "./application.pcss"
+import "init";
+import "components/page/page";
 
-
-Rails.start()
-ActiveStorage.start()
+Rails.start();
+ActiveStorage.start();
