@@ -7,4 +7,23 @@
     <p class="post--content">
         <%= post.content %>
     </p>
+    <hr/>
+    <div class="post--comments">
+        <h4>Comments</h4>
+
+        <% if comments.blank? %>
+            <p>No comments</p>
+        <% end %>
+
+        <% comments.each do |comment| %>
+            <div class="post--comment">
+                <p class="post--comment-author">
+                    <%= comment.user.email %>
+                </p>
+                <p class="post--comment-text">
+                    <%= comment.text %>
+                </p>
+            </div>
+        <% end %>
+    </div>
 </div>

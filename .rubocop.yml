@@ -13,6 +13,10 @@ Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
 
+RSpec/ExampleLength:
+  Exclude:
+    - spec/**/*.rb
+
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true
 Layout/LineEndStringConcatenationIndentation: # new in 1.18
