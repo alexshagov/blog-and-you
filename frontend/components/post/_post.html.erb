@@ -8,7 +8,7 @@
         <%= post.content %>
     </p>
     <hr/>
-    <div class="post--comments">
+    <div class="post--comments .js-post--comments">
         <h4>Comments</h4>
 
         <% if comments.blank? %>
@@ -16,14 +16,9 @@
         <% end %>
 
         <% comments.each do |comment| %>
-            <div class="post--comment">
-                <p class="post--comment-author">
-                    <%= comment.user.email %>
-                </p>
-                <p class="post--comment-text">
-                    <%= comment.text %>
-                </p>
-            </div>
+            <%= render_component('post-comment', comment: comment) %>
         <% end %>
     </div>
+
+    <%= render_component('create-post-comment') %>
 </div>
