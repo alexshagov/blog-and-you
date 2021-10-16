@@ -1,7 +1,9 @@
 <div class='posts'>
-  <% @posts.each do |post| %>
-    <div class='posts--post'>
-        <span class='title'><%= post.title %></span> by <%= post.user.email %>
-    </div>
+  <% posts.each do |post| %>
+    <%= link_to post do %>
+      <div class='posts--post'>
+          <span class='title'><%= post.title %></span> by <%= post.user.email %>
+      </div>
+    <% end %>
   <% end %>
 </div>
