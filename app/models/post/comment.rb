@@ -1,6 +1,4 @@
-module Post
-  class Comment < ApplicationRecord
-    belongs_to :user
-    belongs_to :post
-  end
+class Post::Comment < ApplicationRecord
+  belongs_to :user
+  belongs_to :post
 end

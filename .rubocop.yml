@@ -12,10 +12,12 @@ RSpec/MultipleExpectations:
 Metrics/BlockLength:
   Exclude:
     - spec/**/*.rb
-
 RSpec/ExampleLength:
   Exclude:
     - spec/**/*.rb
+Style/ClassAndModuleChildren:
+  Exclude:
+    - app/models/**/*.rb
 
 Gemspec/DateAssignment: # new in 1.10
   Enabled: true
@@ -165,9 +167,9 @@ RSpec/Rails/AvoidSetupHook: # new in 2.4
 AllCops:
   Include:
     - app/controllers/**/*.rb
-    - app/services/**/*.rb
+    - app/domains/**/*.rb
     - app/models/**/*.rb
     - lib/**/*.rb
     - spec/requests/**/*.rb
     - spec/models/**/*.rb
-    - spec/services/**/*.rb
+    - spec/domains/**/*.rb

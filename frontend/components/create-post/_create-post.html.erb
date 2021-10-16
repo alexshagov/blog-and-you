@@ -1,0 +1,29 @@
+<%= link_to 'All posts', root_path, class: 'link'  %>
+
+<div class="post--create">
+    <%= form_for(form, url: posts_path) do |f| %>
+        <% if form.errors.any? %>
+            <div id="errorExplanation">
+                <h2><%= pluralize(form.errors.count, "error") %> prohibited
+                    this post from being saved:</h2>
+                <ul>
+                    <% form.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                    <% end %>
+                </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= f.label :title %><br />
+            <%= f.text_field :title %>
+        </div>
+        <div class="field">
+            <%= f.label :content %><br />
+            <%= f.text_area :content %>
+        </div>
+        <div class="actions">
+            <%= f.submit "Create post"  %>
+        </div>
+    <% end %>
+</div>
