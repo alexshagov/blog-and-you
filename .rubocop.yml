@@ -169,7 +169,9 @@ AllCops:
     - app/controllers/**/*.rb
     - app/domains/**/*.rb
     - app/models/**/*.rb
+    - app/utils/**/*.rb
     - lib/**/*.rb
     - spec/requests/**/*.rb
     - spec/models/**/*.rb
     - spec/domains/**/*.rb
+    - spec/utils/**/*.rb

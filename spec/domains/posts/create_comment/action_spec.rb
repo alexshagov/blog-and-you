@@ -22,4 +22,28 @@ RSpec.describe Posts::CreateComment::Action do
       expect { action.call }.to raise_error Posts::CreateComment::ValidationError
     end
   end
+
+  describe 'broadcasting' do
+    subject(:action) do
+      described_class.new(form: form,
+                          user: user,
+                          post: post,
+                          ws_server: ws_server_double,
+                          component_renderer: component_renderer_double)
+    end
+
+    let(:ws_server_double) { double }
+    let(:component_renderer_double) { class_double(RenderComponent) }
+
+    it 'broadcasts a message via websocket' do
+      allow(ws_server_double).to receive(:broadcast)
+      allow(component_renderer_double).to receive(:call)
+        .with(component: 'post-comment',
+              locals: { comment: instance_of(Post::Comment) }).and_return('data')
+
+      action.call
+
+      expect(ws_server_double).to have_received(:broadcast).with("post_#{post.id}", { comment: 'data' })
+    end
+  end
 end
