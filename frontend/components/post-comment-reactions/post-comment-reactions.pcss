@@ -1,0 +1,38 @@
+.post--comment-reactions ul {
+  margin: 0;
+  padding: 0;
+}
+
+.post--comment-reactions ul li {
+  display: inline;
+}
+
+.post--comment-reactions ul li.js-reaction-sent {
+  font-size: 120%;
+  cursor: pointer;
+  border: 1px;
+  border-style: dashed;
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.post--comment-reactions ul li:hover {
+  font-size: 120%;
+  cursor: pointer;
+  border: 1px;
+  border-style: dashed;
+  border-radius: 10px;
+  padding: 1px;
+}
+
+.post--comment-reactions ul li.like::before {
+  content: "❤️ ";
+}
+
+.post--comment-reactions ul li.smile::before {
+  content: "😊 ";
+}
+
+.post--comment-reactions ul li.thumbs-up::before {
+  content: "👍 ";
+}

@@ -1,6 +1,6 @@
 import "./create-post-comment.pcss";
 
-import { sendComment } from "client/post-comments";
+import { sendComment } from "client/post-ws-actions";
 
 const isMac = navigator.platform.match(/Mac/) != null;
 

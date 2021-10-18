@@ -39,11 +39,11 @@ RSpec.describe Posts::CreateComment::Action do
       allow(ws_server_double).to receive(:broadcast)
       allow(component_renderer_double).to receive(:call)
         .with(component: 'post-comment',
-              locals: { comment: instance_of(Post::Comment) }).and_return('data')
+              locals: { comment: instance_of(Post::Comment), user: user }).and_return('data')
 
       action.call
 
-      expect(ws_server_double).to have_received(:broadcast).with("post_#{post.id}", { comment: 'data' })
+      expect(ws_server_double).to have_received(:broadcast).with("post_#{post.id}_comments", { comment: 'data' })
     end
   end
 end

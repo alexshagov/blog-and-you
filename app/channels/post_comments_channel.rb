@@ -11,7 +11,7 @@ class PostCommentsChannel < ApplicationCable::Channel
   private
 
   def stream_identifier
-    "post_#{post.id}"
+    "post_#{post.id}_comments"
   end
 
   def post

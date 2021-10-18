@@ -1,0 +1,17 @@
+<div class="post--comment-reactions js-post--comment-reactions">
+    <% presenter = present(comment) %>
+    <ul>
+        <li data-comment-id="<%= comment.id %>"
+            data-reaction-type="like" class="like <%= presenter.reaction_sent?(by: user, reaction_type: 'like') ? 'js-reaction-sent' : nil %>">
+            <%= presenter.reactions_count('like') %>
+        </li>
+        <li data-comment-id="<%= comment.id %>"
+            data-reaction-type="smile" class="smile <%= presenter.reaction_sent?(by: user, reaction_type: 'smile') ? 'js-reaction-sent' : nil %>">
+            <%= presenter.reactions_count('smile') %>
+        </li>
+        <li data-comment-id="<%= comment.id %>"
+            data-reaction-type="thumbs-up" class="thumbs-up <%= presenter.reaction_sent?(by: user, reaction_type: 'thumbs-up') ? 'js-reaction-sent' : nil %>">
+            <%= presenter.reactions_count('thumbs-up') %>
+        </li>
+    </ul>
+</div>

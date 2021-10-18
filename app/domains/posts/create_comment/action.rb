@@ -29,8 +29,8 @@ module Posts
       private
 
       def broadcast_message!
-        rendered_comment = component_renderer.call(component: 'post-comment', locals: { comment: comment })
-        ws_server.broadcast("post_#{post.id}", { comment: rendered_comment })
+        rendered_comment = component_renderer.call(component: 'post-comment', locals: { comment: comment, user: user })
+        ws_server.broadcast("post_#{post.id}_comments", { comment: rendered_comment })
       end
 
       attr_reader :form, :user, :post, :comment,

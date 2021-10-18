@@ -5,4 +5,6 @@
     <p class="post--comment-text">
         <%= comment.text %>
     </p>
+
+    <%= render_component('post-comment-reactions', comment: comment, user: user) %>
 </div>

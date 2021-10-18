@@ -4,12 +4,12 @@ let callback;
 
 const postId = window.location.href.split("/").slice(-1)[0];
 
-const channelDetails = {
+const commentsChannelDetails = {
   channel: "PostCommentsChannel",
   post_id: postId,
 };
 
-const comments = createChannel(channelDetails, {
+const comments = createChannel(commentsChannelDetails, {
   received({ comment }) {
     if (callback) callback.call(null, comment);
   },

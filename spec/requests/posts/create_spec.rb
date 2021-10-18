@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-rspec.describe 'posts create', type: :request do
-  describe 'posts /posts' do
-    let(:user) { factorybot.create(:user) }
+RSpec.describe 'Posts create', type: :request do
+  describe 'POST /posts' do
+    let(:user) { FactoryBot.create(:user) }
     let(:post_params) do
       {
         posts_create_form: {

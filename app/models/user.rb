@@ -3,4 +3,5 @@ class User < ApplicationRecord
 
   has_many :posts, dependent: :destroy
   has_many :comments, class_name: 'Post::Comment', dependent: :destroy
+  has_many :reactions, dependent: :destroy
 end
