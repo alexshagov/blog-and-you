@@ -7,7 +7,7 @@
       <div class='posts--post'>
           <span class='title'><%= post.title %></span> by <%= post.user.email %>
           <% if presenter.owned_by?(current_user) %>
-            <%= link_to edit_post_path(post) do%>
+            <%= link_to post_path(post), method: :delete do%>
                 <span class="delete"></span>
             <% end %>
             <%= link_to edit_post_path(post) do%>

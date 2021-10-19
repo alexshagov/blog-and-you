@@ -42,6 +42,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @action = Posts::Delete::Action.new(post: @post, user: current_user)
+    @action.call
+    redirect_to posts_path
+  end
+
   private
 
   def create_post_params
