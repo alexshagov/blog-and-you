@@ -2,9 +2,18 @@
 
 <div class='posts'>
   <% posts.each do |post| %>
+    <% presenter = present(post) %>
     <%= link_to post do %>
       <div class='posts--post'>
           <span class='title'><%= post.title %></span> by <%= post.user.email %>
+          <% if presenter.owned_by?(current_user) %>
+            <%= link_to edit_post_path(post) do%>
+                <span class="delete"></span>
+            <% end %>
+            <%= link_to edit_post_path(post) do%>
+                <span class="edit"></span>
+            <% end %>
+          <% end %>
       </div>
     <% end %>
   <% end %>

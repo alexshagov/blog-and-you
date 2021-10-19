@@ -7,6 +7,7 @@ import Rails from "@rails/ujs";
 import * as ActiveStorage from "@rails/activestorage";
 
 import "init";
+import "auth/auth";
 import "components/page/page";
 import "components/navbar/navbar";
 import "components/posts/posts";

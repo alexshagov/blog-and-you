@@ -14,11 +14,33 @@
   padding: 10px;
 }
 
-.posts--post:hover {
+.posts--post .title {
+  font-weight: bold;
+}
+
+.posts--post .title:hover {
   background-color: #f4f7fa;
+  text-decoration: underline;
   cursor: pointer;
 }
 
-.posts--post .title {
-  font-weight: bold;
+.posts--post .edit::before {
+  content: "✎";
+  font-size: 150%;
+  float: right;
+  margin-right: 8px;
+}
+
+.posts--post .edit:hover {
+  font-size: 160%;
+}
+
+.posts--post .delete::before {
+  content: "🗑";
+  font-size: 150%;
+  float: right;
+}
+
+.posts--post .delete:hover {
+  font-size: 160%;
 }

@@ -15,7 +15,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    @form = Posts::Create::Form.new(post_params)
+    @form = Posts::Create::Form.new(create_post_params)
     @action = Posts::Create::Action.new(form: @form, user: current_user)
     begin
       post = @action.call
@@ -25,9 +25,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    @form = Posts::Edit::Form.new(post: @post)
+  end
+
+  def update
+    @post = Post.find(params[:id])
+    @form = Posts::Edit::Form.new(update_post_params.merge(post: @post))
+    @action = Posts::Edit::Action.new(form: @form, user: current_user)
+    begin
+      @action.call
+      redirect_to @form.post
+    rescue Posts::Edit::ValidationError
+      render :edit
+    end
+  end
+
   private
 
-  def post_params
+  def create_post_params
     params.require(:posts_create_form).permit(:title, :content)
+  end
+
+  def update_post_params
+    params.require(:posts_edit_form).permit(:title, :content)
   end
 end
