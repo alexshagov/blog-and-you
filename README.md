@@ -8,6 +8,8 @@
 - ESLint, StyleLint, Rubocop via git hooks
 - Real-time comments & reactions updates via websocket
 
+![Screen-Recording-2021-10-19-at-1-min](https://user-images.githubusercontent.com/9149289/137933074-bb5d2337-f70f-4687-af1e-413b273d5490.gif)
+
 
 ### Setup
 
