@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comments = @post.comments.includes(:user, :reactions)
+
+    Cache.update_user_reactions_cache(current_user, @post)
+    Cache.update_post_reactions_cache(@post)
   end
 
   def new

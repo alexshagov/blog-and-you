@@ -42,4 +42,26 @@ RSpec.describe Posts::RetractCommentReaction::Action do
                 reactionType: reaction_type, value: -1 })
     end
   end
+
+  describe 'cache' do
+    subject(:action) do
+      described_class.new(user: user,
+                          comment_id: comment.id,
+                          reaction_type: reaction_type,
+                          cache: cache_double)
+    end
+
+    let(:reaction_type) { 'smile' }
+    let(:cache_double) { class_double(Cache) }
+
+    it 'updates reactions cache' do
+      allow(cache_double).to receive(:update_user_reactions_cache)
+      allow(cache_double).to receive(:update_post_reactions_cache)
+
+      action.call
+
+      expect(cache_double).to have_received(:update_user_reactions_cache).with(user, post)
+      expect(cache_double).to have_received(:update_post_reactions_cache).with(post)
+    end
+  end
 end
