@@ -1,24 +1,38 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Overview
 
-Things you may want to cover:
+- No business logic in controllers / models / views
+- Decent test coverage
+- Component-based frontend design
+- ESLint, StyleLint, Rubocop via git hooks
+- Real-time comments & reactions updates via websocket
 
-* Ruby version
 
-* System dependencies
+### Setup
 
-* Configuration
+The setup is pretty straightforward. Just run the database via docker-compose, install all dependencies and then run webpack and rails server via Procfile (e.g. using foreman).
+db:setup script will prepare the data for you.
 
-* Database creation
+```
+docker-compose up mysql
 
-* Database initialization
+yarn
+bundle
+rails db:setup
 
-* How to run the test suite
+foreman start
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+2 users are available:
 
-* Deployment instructions
+```
+email: 'test1@mail.com', password: '123123'
+email: 'test2@mail.com', password: '123123'
+```
 
-* ...
+
+### Possible improvements
+
+- Add integration tests (e.g. using Cypress) to check all real-time communication works as expected. It's a bit tricky to test all of the JS code inside the Rails app
+- Implement caching using a 3rd party storage (e.g. redis) instead of using in-memory storage

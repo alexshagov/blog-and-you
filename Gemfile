@@ -38,6 +38,9 @@ group :development, :test do
   # Linters
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
+
+  # Procfile runner
+  gem 'foreman'
 end
 
 group :test do
